@@ -10,6 +10,7 @@ public class Enemymaker : MonoBehaviour
     [SerializeField] private float enemyZ;
     [SerializeField] private float enemyX;
     private float ranX;    
+
     // Start is called before the first frame update
     void Start()
     {
