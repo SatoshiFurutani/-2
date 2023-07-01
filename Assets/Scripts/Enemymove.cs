@@ -6,13 +6,11 @@ public class EnemyMove : MonoBehaviour
 {
     [SerializeField] private float enemySpeed;
     [SerializeField] private float enemyLifeTime;
-    private GameObject data;
-    private Data dataCs;
+
     // Start is called before the first frame update
     void Start()
     {
-        data = GameObject.Find("Data"); 
-        dataCs = data.GetComponent<Data>();
+
     }
 
     // Update is called once per frame
@@ -29,12 +27,5 @@ public class EnemyMove : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Bullet"))
-        {
-            dataCs.score++;
-            Destroy(this.gameObject);
-        }
-    }
+
 }
