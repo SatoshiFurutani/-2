@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemymove : MonoBehaviour
+public class EnemyMove : MonoBehaviour
 {
     [SerializeField] private float enemySpeed;
     [SerializeField] private float enemyLifeTime;
@@ -11,7 +11,7 @@ public class Enemymove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        data = GameObject.Find("Data");
+        data = GameObject.Find("Data"); 
         dataCs = data.GetComponent<Data>();
     }
 
@@ -21,16 +21,20 @@ public class Enemymove : MonoBehaviour
         transform.Translate(new Vector3(0, 0, enemySpeed) * Time.deltaTime);
 
         enemyLifeTime = enemyLifeTime - Time.deltaTime;
-        if(enemyLifeTime < 0)
+        if (enemyLifeTime < 0)
         {
-            Destory(this.gameObject);
+            Destroy(this.gameObject);
         }
+
 
     }
 
-    private void OnTrigerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        dataCs.score++;
-        Destory(this.gameObject);
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            dataCs.score++;
+            Destroy(this.gameObject);
+        }
     }
 }

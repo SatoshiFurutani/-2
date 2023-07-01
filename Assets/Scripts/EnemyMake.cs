@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemymaker : MonoBehaviour
+public class EnemyMake : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float makeTime;
     private float waitTime;
     [SerializeField] private float enemyZ;
     [SerializeField] private float enemyX;
-    private float ranX;    
+    private float ranX;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
